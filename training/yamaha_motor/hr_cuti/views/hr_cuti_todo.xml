@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- New List View -->
+        <record model="ir.ui.view" id="hr_cuti_todo_tree">
+            <field name="name">hr.cuti.todo.tree</field>
+            <field name="model">hr.cuti</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <tree edit="false" create="false" delete="false" default_order="quantity desc">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="quantity"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="group_todo"/>
+                    <field name="state"/>
+                    <button name="set_confirm"
+                        string="Confirm"
+                        type="object"
+                        groups="hr_cuti.group_cuti_manager"
+                    />
+                </tree>
+            </field>
+        </record>
+
+        <!-- New Form View -->
+        <record model="ir.ui.view" id="hr_cuti_todo_form">
+            <field name="name">hr.cuti.form</field>
+            <field name="model">hr.cuti</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <form edit="false" create="false" delete="false">
+                    <header>
+                        <button name="set_confirm"
+                            string="Set Confirm"
+                            type="object"
+                            attrs="{'invisible':[('state', 'in', ['draft', 'done'])]}"
+                            groups="hr_cuti.group_cuti_manager,hr_cuti.group_cuti_director"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="quantity"/>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                            <group>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Extra Info">
+                                <group>
+                                    <field name="group_todo"/>
+                                    <field name="user_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_cuti_todo_manager_action">
+            <field name="name">Todo Manager</field>
+            <field name="res_model">hr.cuti</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('group_todo', 'like', 'hr_manager')]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_cuti.hr_cuti_todo_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_cuti.hr_cuti_todo_form')})]"/>
+        </record>
+
+
+        <menuitem
+            id="submenu_hr_cuti_manager_todo"
+            name="Manager"
+            parent="menu_hr_cuti_todo"
+            action="hr_cuti_todo_manager_action"
+        />
+
+        <record model="ir.actions.act_window" id="hr_cuti_todo_director_action">
+            <field name="name">Todo Director</field>
+            <field name="res_model">hr.cuti</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('group_todo', 'like', 'hr_director')]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_cuti.hr_cuti_todo_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_cuti.hr_cuti_todo_form')})]"/>
+        </record>
+
+
+        <menuitem
+            id="submenu_hr_cuti_director_todo"
+            name="Director"
+            parent="menu_hr_cuti_todo"
+            action="hr_cuti_todo_director_action"
+        />
+
+    </data>
+</odoo>
