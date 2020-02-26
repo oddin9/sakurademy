@@ -16,7 +16,7 @@ Sakura is helping developers to learn Odoo by Sakurademy Training
 
 ## Syntax Learning
 
-To prevent unproductive training session, [Sakurademy](https://www.bstm.co.id/) compiled most-used syntax in building Odoo modules. With our experienced, we underlined most-frequent syntax used in this training and set it up as *Auto-Completion*. Sakurademy enthusiastically encourages trainee to use VS Code and its extension, [Sakurademy - Odoo Technical Training](https://marketplace.visualstudio.com/items?itemName=arkademy.arkademy-training)
+To prevent unproductive training session, [Sakurademy](https://www.bstm.co.id/) compiled most-used syntax in building Odoo modules. With our experienced, we underlined most-frequent syntax used in this training and set it up as *Auto-Completion*. Sakurademy enthusiastically encourages trainee to use VS Code and its extension, [Arkademy - Odoo Technical Training](https://marketplace.visualstudio.com/items?itemName=arkademy.arkademy-training)
 
 * **Auto Completion:** Odoo syntax sometimes is felt atypical to some developers. This extension prevents mistyped syntax with 1600 lines of snippets both in **python** and **xml**.
 * **Keyboard Shortcuts:** This extension also alters and adds additional shortcut that frequently used in our Odoo-related work.
