@@ -15,12 +15,11 @@
             "pythonPath": "C:/Program Files (x86)/Odoo 12.0/python/python.exe",
             "program": "C:/Program Files (x86)/Odoo 12.0/server/odoo-bin",
             "args": [
-                
-                "--addons-path=D:/PROJECT/belajar",
+                // "--config=D:\\training\\odoo.conf",
+                "--addons-path=D:/PROJECT/belajar/odoo_sakura/training/training/",
                 "--database=tutor1",
-                "--update=odoo_sakura"
+                "--update=toko_kasir"
             ]
-            
         }
     ]
 }
