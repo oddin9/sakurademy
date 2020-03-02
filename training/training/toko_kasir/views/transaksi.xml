@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="toko_transaksi_tree">
+            <field name="name">toko.transaksi.tree</field>
+            <field name="model">toko.transaksi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="pegawai_id"/>
+                    <field name="produk_id"/>
+                    <field name="qty"/>
+                    <field name="harga"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="toko_transaksi_form">
+            <field name="name">toko.transaksi.form</field>
+            <field name="model">toko.transaksi</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="pegawai_id"/>
+                                <field name="produk_id"/>
+
+                            </group>
+                            <group>
+                                <field name="qty"/>
+                                <field name="harga"/>
+                                <field name="total"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="toko_transaksi_action">
+            <field name="name">Toko Transaksi</field>
+            <field name="res_model">toko.transaksi</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="kakek_toko_transaksi" name="Kakek Toko Transaksi" />
+
+        <menuitem id="bapak_toko_transaksi" name="Bapak Toko Transaksi" parent="kakek_toko_transaksi" />
+
+        <menuitem id="anak_toko_transaksi" name="Anak Toko Transaksi" parent="bapak_toko_transaksi" action="toko_transaksi_action" />
+
+    </data>
+</odoo>
