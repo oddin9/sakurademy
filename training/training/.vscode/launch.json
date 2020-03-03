@@ -18,7 +18,7 @@
                 // "--config=D:\\training\\odoo.conf",
                 "--addons-path=D:/PROJECT/belajar/odoo_sakura/training/training/",
                 "--database=tutor1",
-                "--update=toko_kasir"
+                "--update=odoo_sakura"
             ]
         }
     ]
